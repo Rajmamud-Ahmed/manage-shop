@@ -10,24 +10,24 @@ export class ProductService {
     @InjectModel(Product.name) private readonly ProdModel: Model<Product>,
   ) {}
 
-  async create(taskDto: ProductDto): Promise<ProductDto> {
-    const createTask = new this.ProdModel(taskDto);
-    return createTask.save();
+  async create(productDto: ProductDto): Promise<ProductDto> {
+    const createProduct = new this.ProdModel(productDto);
+    return await createProduct.save();
   }
 
   async viewList(): Promise<ProductDto[]> {
-    return this.ProdModel.find().exec();
+    return await this.ProdModel.find().exec();
   }
 
   async viewOne(id: string): Promise<ProductDto> {
-    return this.ProdModel.findById(id).exec();
+    return await this.ProdModel.findById(id).exec();
   }
 
-  async update(id: string, taskInfoDto: ProductDto): Promise<ProductDto> {
-    return this.ProdModel.findByIdAndUpdate(id, taskInfoDto).exec();
+  async update(id: string, productInfoDto: ProductDto): Promise<ProductDto> {
+    return await this.ProdModel.findByIdAndUpdate(id, productInfoDto).exec();
   }
 
   async delete(id: string): Promise<ProductDto> {
-    return this.ProdModel.findByIdAndDelete(id).exec();
+    return await this.ProdModel.findByIdAndDelete(id).exec();
   }
 }

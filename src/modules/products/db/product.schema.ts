@@ -28,5 +28,11 @@ export class Product {
 
   @Prop()
   terms2: Array<any>;
+
+  @Prop()
+  totalSlots: number;
+
+  @Prop()
+  countType: 'odd' | 'even';
 }
 export const ProductSchema = SchemaFactory.createForClass(Product);

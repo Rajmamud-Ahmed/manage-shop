@@ -24,4 +24,10 @@ export class ProductDto {
 
   @IsNotEmpty()
   terms2: Array<any>;
+
+  @IsNotEmpty()
+  totalSlots: number;
+
+  @IsNotEmpty()
+  countType: 'odd' | 'even';
 }
